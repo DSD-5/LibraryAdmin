@@ -1,0 +1,18 @@
+<div class="product-grid">
+    <mat-card *ngFor="let item of books">
+        <mat-card-header>
+          <mat-card-title>{{ item.title | uppercase }}</mat-card-title>
+          <mat-card-subtitle>{{ item.price | currency }}</mat-card-subtitle>
+        </mat-card-header>
+        <div class="images-cards crop-image">
+          <img [src]="item.image" alt="">
+        </div>
+        <mat-card-content>
+          <p>{{ item.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a mat-raised-button [routerLink]="['/detalle', item.id]">Ver detalle</a>
+          <button (click)="addCart()" mat-raised-button color="primary">Agregar al carrito</button>
+        </mat-card-actions>
+      </mat-card>
+</div>

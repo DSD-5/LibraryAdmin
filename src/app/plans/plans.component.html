@@ -1,0 +1,18 @@
+<div class="product-grid">
+    <mat-card *ngFor="let item of plans" class="center">
+        <mat-card-header>
+            <mat-card-title>
+                <h5 class="underline">{{ item.name | uppercase }}</h5>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{ item.description }}</p>
+        </mat-card-content>
+        <mat-card-content>
+            {{ item.cost }} 
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary">Elegir</button>
+        </mat-card-actions>
+      </mat-card>
+</div>

@@ -1,0 +1,101 @@
+<mat-toolbar>
+    <span>{{form.controls['id'].value?"Actualizar Usuario":"Nuevo Usuario"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="close()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar>
+<form [formGroup]="form" class="normal-form" (ngSubmit)="saveUser($event)">
+    <mat-grid-list cols="1" rowHeight="530px">
+        <mat-grid-tile>
+            <div class="controles-container">
+                <input type="hidden" formControlName="id">
+                <mat-form-field>
+                    <input formControlName="user" matInput placeholder="Usuario">
+                    <mat-error>{{this.requiredField}}</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="nombres" matInput placeholder="Nombres">
+                    <mat-error>{{this.requiredField}}</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="apellidoPaterno" matInput placeholder="Apellido Paterno">
+                    <mat-error>{{this.requiredField}}</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="apellidoMaterno" matInput placeholder="Apellido Materno">
+                    <mat-error>{{this.requiredField}}</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input formControlName="email" matInput placeholder="Email">
+                    <mat-error *ngIf="form.controls['email'].errors?.required">
+                        {{requiredField}}
+                    </mat-error>
+                    <mat-error *ngIf="form.controls['email'].errors?.email">
+                        {{emailValid}}
+                    </mat-error>
+                </mat-form-field>
+                <table cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field>
+                                <mat-label>Tipo de Documento</mat-label>
+                                <mat-select formControlName="tipoDocumentoId">
+                                    <mat-option>Seleccione</mat-option>
+                                    <mat-option value="0">DNI</mat-option>
+                                    <mat-option value="1">Carnet de Extranjeria</mat-option>
+                                </mat-select>
+                                <mat-error>{{this.requiredField}}</mat-error>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field>
+                                <input formControlName="numeroDocumento" matInput placeholder="Número de Documento" (paste)="false">
+                                <mat-error *ngIf="form.controls['numeroDocumento'].errors?.required">
+                                    {{requiredField}}
+                                </mat-error>
+                                <mat-error *ngIf="form.controls['numeroDocumento'].errors?.pattern">
+                                    {{onlyNumbers}}
+                                </mat-error>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                </table>
+                <table cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field>
+                                <mat-label>Departamento</mat-label>
+                                <mat-select formControlName="departamentoId">
+                                    <mat-option>Seleccione</mat-option>
+                                    <mat-option>Lima</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field>
+                                <mat-label>Provincia</mat-label>
+                                <mat-select formControlName="provinciaId">
+                                    <mat-option>Seleccione</mat-option>
+                                    <mat-option>Lima</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field>
+                                <mat-label>Distrito</mat-label>
+                                <mat-select formControlName="distritoId">
+                                    <mat-option>Seleccione</mat-option>
+                                    <mat-option>Lince</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                </table>
+                <div class="button-row center">
+                    <button mat-raised-button color="primary" type="submit"
+                    [disabled]="form.invalid">Guardar</button>
+                    <button mat-raised-button color="primary" (click)="clear()">Limpiar</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>

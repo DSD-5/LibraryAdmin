@@ -1,0 +1,27 @@
+
+<div class="example-container" *ngIf="shouldRun">
+    <mat-toolbar color="primary" class="example-toolbar">
+      <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+      <h1 class="example-app-name">Libreria</h1>
+    </mat-toolbar>
+    <mat-sidenav-container class="example-sidenav-container">
+      <mat-sidenav #snav>
+        <mat-nav-list (click)="snav.close()">
+            <!-- <a mat-list-item [routerLink]="nav.route" *ngFor="let nav of fillerNav">
+              <mat-icon>{{nav.icon}} </mat-icon>
+              {{nav.name}}
+            </a> -->
+            <a mat-list-item routerLink="/admin/book">Libro</a>
+            <a mat-list-item routerLink="/admin/user">Usuario</a>
+            <a mat-list-item routerLink="/admin/book-price">Precios</a>
+          </mat-nav-list>
+        </mat-sidenav>
+    
+        <mat-sidenav-content>
+          <!-- <p *ngFor="let content of fillerContent">{{content}}</p> -->
+          <router-outlet></router-outlet>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+    </div>
+    
+    <div *ngIf="!shouldRun"></div>

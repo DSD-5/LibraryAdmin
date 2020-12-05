@@ -1,0 +1,136 @@
+<mat-toolbar>
+    <!-- <span>{{form.controls['id'].value?"Actualizar Libro":"Nuevo Libro"}}</span> -->
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="close()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar>
+<form [formGroup]="form" class="normal-form" (ngSubmit)="saveBook($event)">
+    <mat-grid-list cols="1" rowHeight="400px">
+        <mat-grid-tile>
+            <div class="controles-container">
+                <mat-form-field>
+                    <input formControlName="title" matInput placeholder="Titulo">
+                    <mat-error>{{this.requiredField}}</mat-error>
+                </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-label>Autor</mat-label>
+                    <mat-select formControlName="autor">
+                        <mat-option value="1">Manuel Ríos</mat-option>
+
+                    </mat-select>
+                    <mat-error>{{this.requiredField}}</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="description" matInput placeholder="Descripcion">
+                    <mat-error>{{this.requiredField}}</mat-error>
+                </mat-form-field>
+                <table cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field>
+                                <mat-label>Género</mat-label>
+                                <mat-select formControlName="genderId">
+                                    <mat-option value="1">Terror</mat-option>
+                                    <mat-option value="2">Novelas</mat-option>
+                                    <mat-option value="3">Cuentos</mat-option>
+                                    <mat-option value="4">Finanzas</mat-option>
+                                </mat-select>
+                                <mat-error>{{this.requiredField}}</mat-error>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                          <mat-form-field>
+                            <mat-label>Estado</mat-label>
+                            <mat-select formControlName="state">
+                                <mat-option value="1">Disponible</mat-option>
+                            </mat-select>
+                            <mat-error>{{this.requiredField}}</mat-error>
+                        </mat-form-field>
+                        </td>
+                    </tr>
+                </table>
+                <table cellspacing="0">
+                    <tr>
+                        <td>
+                          <mat-form-field>
+                            <input formControlName="stockventa" type="number" matInput placeholder="StockVenta" (paste)="false">
+                            <mat-error *ngIf="form.controls['stockventa'].errors?.required">
+                                {{requiredField}}
+                            </mat-error>
+                            <mat-error *ngIf="form.controls['stockventa'].errors?.pattern">
+                                {{onlyNumbers}}
+                            </mat-error>
+                        </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field>
+                                <input formControlName="stockrenta" type="number" matInput placeholder="StockAlquiler" (paste)="false">
+                                <mat-error *ngIf="form.controls['stockrenta'].errors?.required">
+                                    {{requiredField}}
+                                </mat-error>
+                                <mat-error *ngIf="form.controls['stockrenta'].errors?.pattern">
+                                    {{onlyNumbers}}
+                                </mat-error>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+
+
+                <table cellspacing="0">
+                  <tr>
+                      <td>
+                        <mat-form-field>
+                          <input formControlName="precioventa" type="number" matInput placeholder="PrecioVenta" (paste)="false">
+                          <mat-error *ngIf="form.controls['precioventa'].errors?.required">
+                              {{requiredField}}
+                          </mat-error>
+                          <mat-error *ngIf="form.controls['precioventa'].errors?.pattern">
+                              {{onlyNumbers}}
+                          </mat-error>
+                      </mat-form-field>
+                      </td>
+                      <td>
+                          <mat-form-field>
+                              <input formControlName="preciorenta" type="number" matInput placeholder="PrecioAlquiler" (paste)="false">
+                              <mat-error *ngIf="form.controls['preciorenta'].errors?.required">
+                                  {{requiredField}}
+                              </mat-error>
+                              <mat-error *ngIf="form.controls['preciorenta'].errors?.pattern">
+                                  {{onlyNumbers}}
+                              </mat-error>
+                          </mat-form-field>
+                      </td>
+                      <td>
+                      </td>
+                  </tr>
+              </table>
+
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div class="controles-container">
+                <!-- <section class="images-cards" style="margin-top: -12%;">
+                        <div>
+                            <div id="add-image-container">
+                                <label for="add-image">
+                                    <mat-icon>cloud_upload</mat-icon>
+                                </label>
+                                <img [src]="imageUrl">
+                                <input type="file" (change)="uploadFile($event.target.files)" id="add-image" accept="image/*">
+                            </div>
+                        </div>
+                </section> -->
+                <span class="fill-remaining-space"></span>
+                <div class="button-row center">
+                    <button mat-raised-button color="primary" type="submit"
+                    [disabled]="form.invalid">Guardar</button>
+                    <button mat-raised-button color="primary" (click)="clear()">Limpiar</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>

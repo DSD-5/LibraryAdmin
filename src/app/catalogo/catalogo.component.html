@@ -1,0 +1,35 @@
+Hola Componente Catalogo
+<div class="col-12">
+  
+    <div class="container mt-2">
+      <div class="row justify-content-center">
+        <div *ngFor="let l of libro" class="card m-4" style="width: 13rem;">
+          <img class="card-img-top" src="../assets/image/cid.webp" alt="Card image cap" routerLink="detalle">
+          <div class="card-body">
+            <a href="detalle/{{l.id}}" class="card-link">{{l.title}}</a>
+            <p>Precio de venta: {{l.pricesale}}</p>
+            <p>Precio de renta: {{l.pricerental}}</p>
+          </div>
+        </div>
+      
+        <!-- <div class="card m-4" style="width: 13rem;">
+          <img class="card-img-top" src="../assets/image/cid.webp" alt="Card image cap" routerLink="detalle">
+          <div class="card-body">
+            <a href="detalle" class="card-link">El cid</a>
+            <p>Precio unitario: S/.35</p>
+          </div>
+        </div>
+    
+        <div class="card m-4" style="width: 13rem;">
+          <img class="card-img-top" src="../assets/image/cid.webp" alt="Card image cap" href="detalle">
+          <div class="card-body">
+            <a href="detalle" class="card-link">El cid</a>
+            <p>Precio unitario: S/.35</p>
+          </div>
+        </div> -->
+
+      </div>
+    </div>
+    
+  
+  </div>

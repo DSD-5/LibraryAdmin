@@ -1,0 +1,86 @@
+<div class="search-div">
+    <button mat-raised-button  (click)="create()">
+        <mat-icon>add</mat-icon>Crear
+    </button>
+    <mat-form-field class="search-form-field" floatLabel="never">
+        <input matInput [(ngModel)]="searchKey" placeholder="Buscar por nombre" autocomplete="off" (keyup)="applyFilter()">
+        <button mat-button matSuffix mat-icon-button arial-label="Clear" *ngIf="searchKey" (click)="searchClear()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+</div>
+<div class="mat-elevation-z8">
+    <mat-table [dataSource]="libro" matSort>
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.idlibro}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Título </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.nombre}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.descripcion}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="genderId">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Categoria </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.categoria.descripcion }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="state">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.state | state}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="coinId">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Moneda </mat-header-cell>
+            <mat-cell *matCellDef="let element">Soles</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="stockventa">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Stock Venta </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.stockventa}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="priceventa">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Precio Venta </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.costoventa}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="stockrenta">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Stock Renta </mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.stockalquiler}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="pricerenta">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Precio Renta </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.costoalquiler}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                <button mat-icon-button (click)="edit(row)"><mat-icon>launch</mat-icon></button>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="loading">
+            <mat-footer-cell *matFooterCellDef colspan="6">
+                {{loading}}
+            </mat-footer-cell>
+        </ng-container>
+        <ng-container matColumnDef="noData">
+            <mat-footer-cell *matFooterCellDef colspan="6">
+                {{noData}}
+            </mat-footer-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':libro!=null}"></mat-footer-row>
+        <mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(libro!=null && libro.length==0)}"></mat-footer-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+</div>

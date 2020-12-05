@@ -1,0 +1,120 @@
+<!--
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Los más vendidos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Ofertas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Planes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Vender</a>
+      </li>
+      <li>
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              <i class="material-icons">search</i>
+            </button>
+        </form>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Bienvenido Jesús</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Devoluciones y pedidos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="carrito"><i class="material-icons">shopping_cart</i> Carrito</a>
+        </li>
+      </ul>
+    </span>
+  </div>
+</nav>
+<ul class="nav justify-content-center bg-dark">
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Infantiles</a>
+      <a class="dropdown-item" href="#">Comedia</a>
+      <a class="dropdown-item" href="#">Novela</a>
+      <a class="dropdown-item" href="#">Terror</a>
+      <a class="dropdown-item" href="#">Documental</a>
+      
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Los más pedidos</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Ver todos</a>
+  </li>
+</ul> -->
+
+
+<!-- <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1  class="example-app-name text-center">Crisol</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <p *ngFor="let content of fillerContent">{{content}}</p>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div> -->
+
+<!-- <mat-toolbar class="bg-primary-custom">
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-6 mt-3 text-center">
+      <a class="navbar-brand"   href="#">TuTiempoLlibre</a>
+    </div>
+    <div class="col-12 col-md-6 col-lg-6 mt-4 text-center">
+      <input type="text" class="buscar" placeholder="Busca tu libro" name="Busca tu libro"><button class="btn-buscar"><mat-icon>search</mat-icon></button>
+    </div>
+  </div>
+  
+</mat-toolbar>
+<mat-toolbar color="primary">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link text-cat" href="#">Categorias</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-cat" href="#">Nuevo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-cat" href="#">Pricing</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</mat-toolbar> -->
+<router-outlet></router-outlet>
+<!-- <app-sidenav></app-sidenav> -->

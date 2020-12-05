@@ -1,0 +1,16 @@
+.btn-crear{
+    background: #ffa600!important;
+    border: 1px solid #ffa600!important;
+    border-radius: 2.5em!important;
+    color: #fff;
+}
+
+.titulo{
+    color: #1d5791;
+    font-size: 24px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1.1;
+    font-family: 'Rubik',sans-serif!important;
+}

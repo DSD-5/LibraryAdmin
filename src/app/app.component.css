@@ -1,0 +1,97 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
+}
+
+.example-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+.mat-toolbar.mat-primary {
+  background: rgb(29, 87, 145);
+  color: #fff;
+}
+
+.buscar{
+  background: #ffffff!important;
+  border: none!important;
+  border-bottom: 1px solid #cfcfcf!important;
+  max-width: 95%;
+  border-radius: 1px;
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  
+  height: 38px;
+  line-height: 1.42857143;
+  padding: 0 9px;
+  vertical-align: baseline;
+  width: 100%;
+  box-sizing: border-box;
+  border-color: white;    border-top-left-radius: 2em;
+  border-bottom-left-radius: 2em;
+}
+
+.buscar:focus {
+  outline: 0;
+}
+
+.buscar::placeholder {
+  color:rgb(29, 87, 145);
+  opacity: 1; /* Firefox */
+}
+
+.btn-buscar{
+  box-shadow: none !important;
+  top: 11px!important;
+  right: 27px!important;
+  bottom: 14px!important;
+  width: 40px;
+  border-top-right-radius: 2em;
+  border-bottom-right-radius: 2em;
+  background-color: #ffa600!important;
+  border: none;
+  height: 38px;font-size: 14px;
+}
+
+.text-cat{
+  color: #ffffff !important;
+  font-weight: 400!important;
+    text-transform: capitalize!important;
+    font-size: 17px;
+    line-height: 60px!important;
+    cursor: pointer;
+}
+.item-cat{
+  height: 100%;
+}
+
+.item-cat:hover {
+  background-color: red;
+  
+}
+
+.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-small, .btn-floating, .dropdown-content, .collapsible, .sidenav {
+  box-shadow: none !important;
+}
